@@ -1,0 +1,15 @@
+---
+- hosts: servers
+  become: yes
+  # vars:
+  
+  pre_tasks:
+    - name: Update all packages and index
+      apt:
+        upgrade: dist
+        update_cache: yes
+        
+
+  roles:
+    - geerlingguy.swap
+    - ansible-yunohost
